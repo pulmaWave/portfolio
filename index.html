@@ -15,6 +15,15 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <style>
+      #fancy-loader {
+        display: none;
+      }
+    </style>
+
+    <script>
+      document.documentElement.classList.add('loading')
+    </script>
   <link rel="icon" href="favicon.png"><script defer src="bundle.js"></script></head>
   <body>
     <!-- Header -->
@@ -490,5 +499,16 @@
     <button class="scroll-top" aria-label="Scroll to top">
       <i class="fas fa-arrow-up"></i>
     </button>
+    <!-- Preload -->
+    <div id="fancy-loader">
+      <div class="fancy-logo">
+        <span class="bracket">&lt;</span>
+        <span class="letter">T</span>
+        <span class="bracket">/&gt;</span>
+      </div>
+      <div class="fancy-text">Welcome to my</div>
+      <div class="portfolio-text">PORTFOLIO</div>
+    </div>
+    <div id="root" style="display: none"></div>
   </body>
 </html>
