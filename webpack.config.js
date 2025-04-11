@@ -1,25 +1,31 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    clean: true // dọn dẹp dist cũ
+    clean: true
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'] // xử lý css
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // sử dụng HTML gốc
-      favicon: './src/favicon.png' // nếu có icon
+      template: './src/index.html',
+      favicon: './public/favicon.png' // lưu favicon trong public
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public', to: '.' } // copy toàn bộ file từ public vào dist
+      ]
     })
   ],
   devServer: {
@@ -27,5 +33,5 @@ module.exports = {
     open: true,
     port: 3000
   },
-  mode: 'development' // hoặc 'production'
+  mode: 'development'
 }
