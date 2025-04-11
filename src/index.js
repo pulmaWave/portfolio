@@ -1,4 +1,18 @@
 import './style.css'
+window.addEventListener('load', () => {
+  const loader = document.getElementById('fancy-loader')
+  const root = document.getElementById('root')
+
+  // Hiện loader sau khi CSS tải xong
+  loader.style.display = 'flex' // hoặc block nếu bạn dùng layout khác
+  root.style.display = 'none'
+
+  setTimeout(() => {
+    loader.style.display = 'none'
+    root.style.display = 'block'
+  }, 3000)
+})
+
 // Set current year in footer
 document.getElementById('current-year').textContent = new Date().getFullYear()
 
@@ -99,3 +113,5 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   })
 })
+
+// preload
