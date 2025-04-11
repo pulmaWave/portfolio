@@ -22,11 +22,11 @@ const themeIcon = themeToggle.querySelector('i')
 
 // Check for saved theme preference or use preferred color scheme
 const savedTheme = localStorage.getItem('theme')
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+const prefersDark = window.matchMedia('(prefers-color-scheme: light)').matches
 
-if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  themeIcon.classList.replace('fa-moon', 'fa-sun')
+if (savedTheme === 'light' || (!savedTheme && prefersDark)) {
+  document.documentElement.setAttribute('data-theme', 'light')
+  themeIcon.classList.replace('fa-sun', 'fa-moon')
 }
 
 themeToggle.addEventListener('click', () => {
